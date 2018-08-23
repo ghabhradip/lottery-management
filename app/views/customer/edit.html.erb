@@ -1,8 +1,8 @@
 <center>
 <div class="card bg-light mb-3">
-  <div class="card-header"><h2>Create a Customer</h2></div>
+  <div class="card-header"><h2>Customer Edit</h2></div>
   <div class="card-body">
-    <%= form_for @customer,url: {action: "create"} do |f| %>
+    <%= form_for @customer,url: "/customer/#{@customer.id}/update" do |f| %>
       <fieldset>
         <div class="form-group">
           <%= f.email_field :email, autocomplete: "off", autofocus: true, class: 'form-control', placeholder: "Email*",required: true%> 
@@ -24,7 +24,7 @@
         </div>
         </fieldset>
         <br>
-        <button type="submit" class="btn btn-danger medium-button">Create</button>
+        <button type="submit" class="btn btn-danger medium-button">Update</button>
       </fieldset>
     <%end%>
   </div>

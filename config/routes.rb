@@ -3,24 +3,24 @@ Rails.application.routes.draw do
 
   get 'lottery/new'
 
-  get 'lottery/create'
+  post 'lottery/create'
 
   get 'lottery/edit'
 
-  get 'lottery/update'
+  patch 'lottery/update'
 
   get 'customer/index'
 
   get 'customer/new'
+  get '/customer/:id/edit' => 'customer#edit'
+  post '/customer/create' => 'customer#create'
 
-  get 'customer/create'
-
-  get 'customer/update'
+  patch '/customer/:id/update' => 'customer#update'
 
   get 'home/index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root "home#index"
+  root "home#dashboard"
 
   # devise_scope :user do
 	 #  root to: "devise/sessions#new"
