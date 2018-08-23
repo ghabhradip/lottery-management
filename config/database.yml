@@ -1,0 +1,59 @@
+############################################################ - Office machine setup
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: LMD
+  username: markets
+  password: tyndall4408
+  pool: 5
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: LMD
+  username: markets
+  password: tyndall4408
+  pool: 5
+
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: LMD
+  username: markets
+  password: tyndall4408
+  pool: 5
+
+############################################################ - Home machine setup
+
+# development:
+#   adapter: postgresql
+#   encoding: unicode
+#   host: localhost
+#   database: shopify-app-v3
+#   username: postgres
+#   password: helloworld
+#   pool: 5
+
+# test:
+#   adapter: postgresql
+#   encoding: unicode
+#   host: localhost
+#   database: shopify-app-v3
+#   username: postgres
+#   password: helloworld
+#   pool: 5
+
+
+# production:
+#   adapter: postgresql
+#   encoding: unicode
+#   host: localhost
+#   database: shopify-app-v3
+#   username: postgres
+#   password: helloworld
+#   pool: 5
