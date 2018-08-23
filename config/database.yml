@@ -1,32 +1,32 @@
-############################################################ - Office machine setup
+# ############################################################ - Office machine setup
 
-development:
-  adapter: postgresql
-  encoding: unicode
-  host: localhost
-  database: LMD
-  username: markets
-  password: tyndall4408
-  pool: 5
+# development:
+#   adapter: postgresql
+#   encoding: unicode
+#   host: localhost
+#   database: LMD
+#   username: markets
+#   password: tyndall4408
+#   pool: 5
 
-test:
-  adapter: postgresql
-  encoding: unicode
-  host: localhost
-  database: LMD
-  username: markets
-  password: tyndall4408
-  pool: 5
+# test:
+#   adapter: postgresql
+#   encoding: unicode
+#   host: localhost
+#   database: LMD
+#   username: markets
+#   password: tyndall4408
+#   pool: 5
 
 
-production:
-  adapter: postgresql
-  encoding: unicode
-  host: localhost
-  database: LMD
-  username: markets
-  password: tyndall4408
-  pool: 5
+# production:
+#   adapter: postgresql
+#   encoding: unicode
+#   host: localhost
+#   database: LMD
+#   username: markets
+#   password: tyndall4408
+#   pool: 5
 
 ############################################################ - Home machine setup
 
@@ -57,3 +57,11 @@ production:
 #   username: postgres
 #   password: helloworld
 #   pool: 5
+
+#######################################################################################################
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: development_lottery
+  pool: 5
+

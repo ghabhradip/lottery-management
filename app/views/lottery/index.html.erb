@@ -1,2 +1,36 @@
-<h1>Lottery#index</h1>
-<p>Find me in app/views/lottery/index.html.erb</p>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+<div class="container-fluid">
+  <table id="lotteries_datatable" class="display" style="width:100%;">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Rate</th>
+        <th>Drawn</th>
+        <th>Series</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @lotteries.each do |lottery| %>
+        <tr> 
+          <td><%= lottery.name %></td>
+          <td><%= lottery.rate %></td>
+          <td><%= lottery.drawn %></td>
+          <td>
+          	<%= lottery.series.pluck(:name).join(",") %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody> 
+  </table>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() 
+  {
+    $('#lotteries_datatable').DataTable({
+      responsive: true
+    });
+  });
+</script>

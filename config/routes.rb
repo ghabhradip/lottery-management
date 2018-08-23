@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   get 'lottery/index'
 
   get 'lottery/new'
+  post 'lottery/create' => 'lottery#create'
 
-  post 'lottery/create'
 
   get 'lottery/edit'
 

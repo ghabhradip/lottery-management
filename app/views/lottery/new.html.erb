@@ -1,2 +1,51 @@
-<h1>Lottery#new</h1>
-<p>Find me in app/views/lottery/new.html.erb</p>
+<center>
+<h2>Create Lottery Entry</h2>
+<div class="card bg-light mb-3 login_card">
+  <div class="card-header"></div>
+  <div class="card-body">
+   <%= form_tag('create') do %>
+	  <div class="form-group">
+	    <%= text_field_tag :name, "" ,placeholder: "Name", class: "form-control" %>
+	  </div>
+
+	  <div class="form-group">
+	   <%= text_field_tag :rate, "", placeholder: "Rate", class: "form-control"  %>
+	  </div>
+
+	  <div class="form-group">
+	  	<small>Enter series names and press COMMA(,) to add more</small>
+	  <input type="text" class="form-control" id="series_tokenfield" name="series">
+       
+	  </div>
+
+	  <div class="form-group">
+	  	<%= check_box_tag :drawn, ''%> Drawn
+	  </div>
+
+	  <%= submit_tag 'Create' , class: "btn btn-danger" %>
+	  <%= hidden_field_tag 'drawn_value', ''%>
+    <% end %>
+  </div>
+</div>
+</center>
+
+
+<script>
+$('#series_tokenfield').tokenfield();
+</script>
+
+
+<script>
+	$('#drawn').click(function() {
+  		if ($('#drawn').is(':checked')) 
+		{
+			$("#drawn_value").val("drawn")
+		}
+		else
+		{
+			$("#drawn_value").val("not drawn")
+		}
+	});
+	
+
+</script>
