@@ -1,1 +1,31 @@
-asdasdsadasd
+
+<center>
+Rate - <%=@lottery.rate%>
+<br>
+<hr>
+<br>
+<table id="lottery_series" class="display" style="width:100%;">
+	<thead>
+	  <tr>
+	    <th>Name</th>
+	    <th>Qty</th>
+	    <th>Serial no. </th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <%@lottery.series.pluck(:name).each do |sr|%>
+	  	<tr>
+	  		<td><%=sr%></td>
+	  		<td><input type="text" name="<%=sr%>" id="<%=sr%>" class="text-box"></td>
+	  	</tr>
+	  <%end%>
+	</tbody> 
+	</table>
+</center>
+
+<style>
+	.text-box
+	{
+		width: 150px;
+	}
+</style>

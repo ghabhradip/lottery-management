@@ -1,6 +1,6 @@
 <center>
 <div class="card bg-light mb-3">
-  <div class="card-header"><h2>Transaction</h2></div>
+  <div class="card-header"><h2>Create Money Receipt</h2></div>
   <div class="card-body">
     <%= form_tag transaction_create_path do %>
       <fieldset>
@@ -16,12 +16,22 @@
         <div id = "lottery_details">
           
         </div>
+        <br>
+         <div class="field">
+          <hr>
+          <input type="text" placeholder="Type registered post no." name="rp_no" id="rp_no" class="form-control">
+         </div>
+         <br>
         <div class="field">
+          <hr>
           <%= label :demand_draft, 'Demand Draft' %>
             <%= radio_button_tag 'gender','Demand Draft' %>
           <%= label :money_order, 'Money Order' %>
             <%= radio_button_tag 'gender', 'Money Order' %>
+            <br>
+            <input type="text" placeholder="Type instrument no." name="instrument_no" id="instrument_no" class="form-control">
         </div>
+        <br>
         <button type="submit" class="btn btn-danger medium-button">Submit</button>
       </fieldset>
     <%end%>
@@ -30,6 +40,7 @@
 </center>
 
 <script type="text/javascript">
+  $("form")[0].reset(); 
   $("#search_customer").on('keyup', function(){
     var search = $(this).val().ltrim();
     if(search.length > 0)
