@@ -1,0 +1,19 @@
+<%if @customers.present?%>
+  <ul>
+    <% @customers.each do |customer| %>
+      <li class="customer_entry" data-value="<%= customer.name %>">
+        <a href="javascript:void(0)"><%= customer.name %></a>
+      </li>
+      <li class="divider">
+
+      </li>
+    <% end %>
+  </ul>
+<%end%>
+<script type="text/javascript">
+	$(".customer_entry").click(function()
+	{
+		$("#search_customer").val($(this).attr("data-value"));
+		$(".display_customer_list").hide();
+	});
+</script>

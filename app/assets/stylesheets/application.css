@@ -88,3 +88,64 @@
 .badge-inverse:hover {
   background-color: #1a1a1a;
 }
+
+.search_customer_sec {
+  position: relative;
+  margin-bottom: 10px;
+}
+.display_customer_list {
+    position: absolute;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #aaa;
+    max-height: 300px;
+    overflow-y: auto;
+    display:none;
+    z-index: 9;
+}
+.display_customer_list ul{
+  padding-left: 0px;
+  list-style: none;
+  margin: 0;
+}
+.display_customer_list a:hover {
+    background: #eee;
+}
+
+.display_customer_list a {
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+    color: #333;
+}
+
+.search_lottery_sec {
+  position: relative;
+  margin-bottom: 10px;
+  
+}
+.display_lottery_list {
+    position: absolute;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #aaa;
+    max-height: 300px;
+    overflow-y: auto;
+    display:none;
+    z-index: 9;
+}
+.display_lottery_list ul{
+  padding-left: 0px;
+  list-style: none;
+  margin: 0;
+}
+.display_lottery_list a:hover {
+    background: #eee;
+}
+
+.display_lottery_list a {
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+    color: #333;
+}

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'home#index'
   get 'lottery/index'
 
   get 'lottery/new'
@@ -18,9 +19,8 @@ Rails.application.routes.draw do
   patch '/customer/:id/update' => 'customer#update'
 
   get 'home/index'
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root "home#dashboard"
+  # root "home#dashboard"
 
   # devise_scope :user do
 	 #  root to: "devise/sessions#new"
@@ -28,4 +28,12 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {sessions: "session"}
 
   get 'home/dashboard' => "home#dashboard"
+
+  get '/transaction/new'
+
+  post '/transaction/create', as: :transaction_create
+  get "/get_customers" => "customer#get_customers"
+  get "/get_lotteries" => "lottery#get_lotteries"
+
+  get '/lottery/:id' => 'lottery#show'
 end

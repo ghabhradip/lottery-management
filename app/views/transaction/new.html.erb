@@ -1,0 +1,96 @@
+<center>
+<div class="card bg-light mb-3">
+  <div class="card-header"><h2>Transaction</h2></div>
+  <div class="card-body">
+    <%= form_tag transaction_create_path do %>
+      <fieldset>
+        <div class="search_customer_sec">
+          <input type="text" placeholder="Type to search customer.." name="search_customer" id="search_customer" class="form-control">
+          <div class="display_customer_list" ></div>
+          <div class="display_customer_data" ></div>
+        </div>
+        <div class="search_lottery_sec">
+          <input type="text" placeholder="Type to search lottery.." name="search_lottery" id="search_lottery" class="form-control">
+          <div class="display_lottery_list" ></div>
+        </div>
+        <div id = "lottery_details">
+          
+        </div>
+        <div class="field">
+          <%= label :demand_draft, 'Demand Draft' %>
+            <%= radio_button_tag 'gender','Demand Draft' %>
+          <%= label :money_order, 'Money Order' %>
+            <%= radio_button_tag 'gender', 'Money Order' %>
+        </div>
+        <button type="submit" class="btn btn-danger medium-button">Submit</button>
+      </fieldset>
+    <%end%>
+  </div>
+</div>
+</center>
+
+<script type="text/javascript">
+  $("#search_customer").on('keyup', function(){
+    var search = $(this).val().ltrim();
+    if(search.length > 0)
+    {
+      $.ajax({
+        type: "GET",
+        url: "/get_customers",
+        data: {query: search},
+        success: function(data) {
+          // alert(2);
+
+          if( (data == "blank_search") || (data == "" || data == null) ){
+            $(".display_customer_list").hide().html(''); 
+          }else{
+            $(".display_customer_list").show().html(data);
+          }
+        },
+        error: function(data){
+          alert("Got an error while fetching customers.!!!");
+        }
+      });
+    }
+    else{
+      $(".display_customer_list").hide();
+    }
+  });
+
+
+
+  $("#search_lottery").on('keyup', function(){
+    var search = $(this).val().ltrim();
+    if(search.length > 0)
+    {
+      $.ajax({
+        type: "GET",
+        url: "/get_lotteries",
+        data: {query: search},
+        success: function(data) {
+          if( (data == "blank_search") || (data == "" || data == null) ){
+            $(".display_lottery_list").hide().html(''); 
+          }else{
+            $(".display_lottery_list").show().html(data);
+          }
+        },
+        error: function(data){
+          alert("Got an error while fetching lotteries.!!!");
+        }
+      });
+    }
+    else{
+      $(".display_lotteries_list").hide();
+    }
+  });
+
+
+
+
+
+  // created ltrim function to trim text from left side
+  String.prototype.ltrim = function() {
+    var trimmed = this.replace(/^\s+/g, ''); // fro right trim use replace(/\s+$/g, '');
+    return trimmed;
+  };
+</script>
