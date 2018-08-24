@@ -1,0 +1,34 @@
+<%if @lotteries.present?%>
+  <ul>
+    <% @lotteries.each do |lottery| %>
+      <li class="lottery_entry" data-value="<%= lottery.name %>" data-rate="<%= lottery.rate %>" data-id="<%= lottery.id %>">
+        <a href="javascript:void(0)"><%= lottery.name %></a>
+      </li>
+      <li class="divider">
+      </li>
+    <% end %>
+  </ul>
+<%end%>
+<script type="text/javascript">
+	$(".lottery_entry").click(function()
+	{
+    var lottery_name = $(this).attr("data-value");  
+    var lottery_rate = $(this).attr("data-rate");    
+		$("#search_lottery").val(lottery_name);
+		$(".display_lottery_list").hide();
+    var lottery_id = $(this).attr("data-id");
+
+    $.ajax({
+      type: 'GET',
+      url: "/lottery/"+lottery_id,
+      data:{'id': lottery_id},
+      success: function(data)
+      { 
+        
+      }, 
+      error: function(data){ alert('error'); } 
+    })
+	});
+</script>
+
+<!-- lottery_details -->

@@ -1,12 +1,22 @@
 class LotteryController < ApplicationController
   skip_before_action :verify_authenticity_token  
   def index
-    
     @lotteries = Lottery.all
   end
+
+  def get_lotteries
+    if params[:query].present?
+      @lotteries=Lottery.where('LOWER(name) LIKE :name AND drawn is null' , name: "%#{params[:query].downcase}%")
+      render :partial => "list"
+    else
+      render :text => "blank_search"
+    end
+  end
+
   def new
     @lottery = Lottery.new
   end
+
   def create
     @lottery = Lottery.new
     @lottery.name = params[:name]
@@ -36,4 +46,9 @@ class LotteryController < ApplicationController
 
   def update
   end
+
+  def show
+    @lottery = Lottery.find_by_id(params[:id])
+    render partial: "details"
+  end 
 end
